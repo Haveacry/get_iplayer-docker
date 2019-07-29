@@ -32,6 +32,10 @@ echo Forcing output location...
 
 if [[ -f /root/get_iplayer.cgi ]]
 then
+  # Touch crontabs
+  touch /etc/crontabs/root
+  touch /var/spool/cron/crontabs/root
+
   # Start cron
   /usr/sbin/crond
   
