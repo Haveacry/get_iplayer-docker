@@ -1,17 +1,20 @@
-FROM alpine:3.9
+FROM ubuntu:latest
 
 ADD start.sh /root/start.sh
 ADD update.sh /root/update.sh
 
-RUN apk --update add \
-    bash \
+RUN sed -i -e "s/archive\.ubuntu\.com/au\.archive\.ubuntu\.com/g" /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y \
+    cron \
     ffmpeg \
     openssl \
-    perl-cgi \
-    perl-mojolicious \
-    perl-lwp-protocol-https \
-    perl-xml-simple \
-    perl-xml-libxml && \
+    wget \
+    libcgi-pm-perl \
+    libmojolicious-perl \
+    liblwp-protocol-https-perl \
+    libxml-simple-perl \
+    libxml-libxml-perl && \
     chmod 755 /root/start.sh && \
     chmod 755 /root/update.sh && \
     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \

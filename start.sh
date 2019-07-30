@@ -33,11 +33,10 @@ echo Forcing output location...
 if [[ -f /root/get_iplayer.cgi ]]
 then
   # Touch crontabs
-  touch /etc/crontabs/root
-  touch /var/spool/cron/crontabs/root
+  touch /var/log/cron.log /etc/crontab /etc/cron.*/*
 
   # Start cron
-  /usr/sbin/crond
+  /usr/sbin/cron
   
   # Keep restarting - for when the get_iplayer script is updated
   while true
