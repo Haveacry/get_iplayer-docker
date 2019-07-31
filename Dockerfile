@@ -18,9 +18,9 @@ RUN sed -i -e "s/archive\.ubuntu\.com/au\.archive\.ubuntu\.com/g" /etc/apt/sourc
     chmod 755 /root/start.sh && \
     chmod 755 /root/update.sh && \
     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
-    echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
-    echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
-    echo "@daily /root/update.sh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
+    echo "@hourly /root/get_iplayer --refresh 2>&1" >> /root/cron.tab && \
+    echo "@hourly /root/get_iplayer --pvr 2>&1" >> /root/cron.tab && \
+    echo "@daily /root/update.sh 2>&1" >> /root/cron.tab && \
     crontab /root/cron.tab && \
     rm -f /root/cron.tab
 
