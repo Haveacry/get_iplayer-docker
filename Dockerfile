@@ -28,8 +28,8 @@ VOLUME /root/.get_iplayer
 VOLUME /root/output
 
 LABEL issues_get_iplayer="Comments/issues for get_iplayer: https://forums.squarepenguin.co.uk"
-LABEL issues_kolonuk/get_iplayer="Comments/issues for this Dockerfile: https://github.com/kolonuk/get_iplayer-docker/issues"
-LABEL maintainer="John Wood <john@kolon.co.uk>"
+LABEL issues_kolonuk/get_iplayer="Comments/issues for this Dockerfile: https://github.com/speedst3r/get_iplayer-docker/issues"
+LABEL maintainer="Dean Holland <speedster@haveacry.com>"
 
 EXPOSE 8181:8181
 
