@@ -1,8 +1,8 @@
 # get_iplayer on Docker
 
-Disappointed with the current availability of get_iplayer in docker, I created an auto-updating docker container, complete with the webgui.
+[![](https://images.microbadger.com/badges/image/speedst3r/get-iplayer.svg)](https://microbadger.com/images/speedst3r/get-iplayer "Get your own image badge on microbadger.com")
 
-For now, this uses the plain Ubuntu image, so is huge for a very simple perl program - definitely needs the packages trimming.  I've added a testing branch to the github repo so that I can experiment with other base images to see if I can get this reduced in size - current uncompressed ubuntu is around 400mb.  If you'd like to contribute, please fork and create a pull request, or just raise an issue on github.
+[Get_iPlayer](https://github.com/get-iplayer/get_iplayer) A utility for downloading TV and radio programmes from BBC iPlayer, that is currently in active development.
 
 ## Usage
     docker create \
@@ -11,7 +11,7 @@ For now, this uses the plain Ubuntu image, so is huge for a very simple perl pro
     -v /etc/localtime:/etc/localtime:ro \
     -v </path/to/config>:/root/.get_iplayer \
     -v </path/to/downloads>:/root/output \
-    kolonuk/get_iplayer
+    speedst3r/get-iplayer
 
 * Backup your current config and recordings.
 * Mount `/root/.get_iplayer` to your config directory.  This should include your `options` file and `pvr` directory.  If starting from scratch, you can manually edit the `options` file created here.
@@ -32,7 +32,7 @@ To do a manual update, you just need to re-create this container and it will hav
 **Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), this auto-update method is the best you can get.**
 
 ## Issues
-* Report issues with this dockerfile <https://github.com/kolonuk/get_iplayer/issues>
+* Report issues with this dockerfile <https://github.com/speedst3r/get_iplayer/issues>
 * Report issues with the get_iplayer script <https://squarepenguin.co.uk/forums/>
 
 ## About me
