@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TAG_VERSION=`git tag --sort -"v:refname" | head -n 1`
+
+docker push $DOCKER_REPO:$TAG_VERSION
