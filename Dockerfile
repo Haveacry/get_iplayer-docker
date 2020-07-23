@@ -5,7 +5,7 @@ ARG VCS_REF
 
 LABEL maintainer="Dean Holland <speedster@haveacry.com>" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/Haveacry/docker-bedrock" \
+      org.label-schema.vcs-url="https://github.com/speedst3r/get_iplayer-docker" \
       org.label-schema.build-date=$BUILD_DATE
 
 ADD start.sh /root/start.sh
