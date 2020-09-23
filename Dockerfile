@@ -11,8 +11,7 @@ LABEL maintainer="Dean Holland <speedster@haveacry.com>" \
 ADD start.sh /root/start.sh
 ADD update.sh /root/update.sh
 
-RUN sed -i -e "s/archive\.ubuntu\.com/au\.archive\.ubuntu\.com/g" /etc/apt/sources.list && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     cron \
     ffmpeg \
