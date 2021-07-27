@@ -17,6 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
     ffmpeg \
     openssl \
     wget \
+    atomicparsley \
     libcgi-pm-perl \
     libmojolicious-perl \
     liblwp-protocol-https-perl \
