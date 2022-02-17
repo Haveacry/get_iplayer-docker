@@ -21,7 +21,7 @@ jobs:
       - name: Check local repo release
         id: localversion
         run: |
-          CUR_VER="cat .iplayercommit"
+          CUR_VER=`cat .iplayercommit`
           echo "::set-output name=localver::$CUR_VER"
     outputs:
       iplayerver: ${{ steps.iplayerversion.outputs.iplayerver }}
