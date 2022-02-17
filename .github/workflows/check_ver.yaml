@@ -43,13 +43,15 @@ jobs:
           echo ${{ needs.check_version.outputs.iplayerver }} > .iplayercommit
           IPLAYERCOMMIT=${{ needs.check_version.outputs.iplayerver }}
           SHORTCOMMIT=${IPLAYERCOMMIT:0:7}
+          CURDATE=`date +%F.%H%M%S`
           echo "::set-output name=shortcommit::$SHORTCOMMIT"
+          echo "::set-output name=curdate::$CURDATE
       - name: Commit and tag
         uses: EndBug/add-and-commit@v7
         with:
-          message: "Release ${{ steps.update.outputs.shortcommit }}"
+          message: "Release ${{ steps.update.outputs.curdate }}"
           add: ".iplayercommit"
-          tag: ${{ steps.update.outputs.shortcommit }}
+          tag: ${{ steps.update.outputs.curdate }}
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
