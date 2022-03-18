@@ -45,7 +45,7 @@ jobs:
           SHORTCOMMIT=${IPLAYERCOMMIT:0:7}
           CURDATE=`date +%F.%H%M%S`
           echo "::set-output name=shortcommit::$SHORTCOMMIT"
-          echo "::set-output name=curdate::$CURDATE
+          echo "::set-output name=curdate::$CURDATE"
       - name: Commit and tag
         uses: EndBug/add-and-commit@v7
         with:
