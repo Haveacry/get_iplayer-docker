@@ -11,7 +11,7 @@
     -v /etc/localtime:/etc/localtime:ro \
     -v </path/to/config>:/root/.get_iplayer \
     -v </path/to/downloads>:/root/output \
-    speedst3r/get-iplayer
+    ghcr.io/speedst3r/get-iplayer
 
 * Backup your current config and recordings.
 * Mount `/root/.get_iplayer` to your config directory.  This should include your `options` file and `pvr` directory.  If starting from scratch, you can manually edit the `options` file created here.
