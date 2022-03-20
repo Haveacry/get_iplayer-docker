@@ -55,5 +55,5 @@ jobs:
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.update.outputs.shortcommit }}
+          tag: ${{ steps.update.outputs.curdate }}
           token: ${{ secrets.PAT }}
