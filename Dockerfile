@@ -28,7 +28,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
     echo "@hourly /root/get_iplayer --refresh 2>&1" >> /root/cron.tab && \
     echo "@hourly /root/get_iplayer --pvr 2>&1" >> /root/cron.tab && \
-    echo "@daily /root/update.sh 2>&1" >> /root/cron.tab && \
     crontab /root/cron.tab && \
     rm -f /root/cron.tab
 
