@@ -41,10 +41,6 @@ jobs:
         id: update
         run: |
           sed -i -E "s/IPLAYER_VERSION=v[0-9]+\.[0-9]+/IPLAYER_VERSION=${{ needs.check_version.outputs.iplayerver }}/g" Dockerfile*
-      - name: Update version file
-        id: update
-        run: |
-          IPLAYERCOMMIT=${{ needs.check_version.outputs.iplayerver }}
       - name: Commit and tag
         uses: EndBug/add-and-commit@v9
         with:
