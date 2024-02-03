@@ -36,8 +36,7 @@ jobs:
         with:
           images: ghcr.io/speedst3r/get-iplayer
           flavor: |
-            latest=false
-            suffix=-alpine
+            suffix=-alpine,onlatest=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
