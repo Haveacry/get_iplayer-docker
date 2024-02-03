@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM alpine:3.19
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -12,25 +12,23 @@ LABEL maintainer="Dean Holland <speedster@haveacry.com>" \
 
 ADD start.sh /root/start.sh
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    cron \
+RUN apk --update add \
+    bash \
     ffmpeg \
     openssl \
-    wget \
-    atomicparsley \
-    libcgi-pm-perl \
-    libmojolicious-perl \
-    liblwp-protocol-https-perl \
-    libxml-simple-perl \
-    libxml-libxml-perl && \
+    perl-cgi \
+    perl-mojolicious \
+    perl-lwp-protocol-https \
+    perl-xml-simple \
+    perl-xml-libxml && \
+    apk add atomicparsley --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
     wget https://github.com/get-iplayer/get_iplayer/archive/$IPLAYER_VERSION.tar.gz -O /root/latest.tar.gz && \
     tar -C /root -xzf /root/latest.tar.gz --strip-components=1 && \
     rm /root/latest.tar.gz && \
     chmod 755 /root/start.sh && \
     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
-    echo "@hourly /root/get_iplayer --refresh 2>&1" >> /root/cron.tab && \
-    echo "@hourly /root/get_iplayer --pvr 2>&1" >> /root/cron.tab && \
+    echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
+    echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     crontab /root/cron.tab && \
     rm -f /root/cron.tab
 
@@ -38,8 +36,11 @@ VOLUME /root/.get_iplayer
 VOLUME /root/output
 
 LABEL issues_get_iplayer="Comments/issues for get_iplayer: https://forums.squarepenguin.co.uk"
-LABEL issues_kolonuk/get_iplayer="Comments/issues for this Dockerfile: https://github.com/speedst3r/get_iplayer-docker/issues"
+LABEL issues_speedst3r/get_iplayer="Comments/issues for this Dockerfile: https://github.com/speedst3r/get_iplayer-docker/issues"
 LABEL maintainer="Dean Holland <speedster@haveacry.com>"
+
+#https://betterprogramming.pub/docker-healthchecks-eb744bfe3f3b
+#HEALTHCHECK 
 
 EXPOSE 8181:8181
 

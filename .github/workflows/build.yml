@@ -30,6 +30,15 @@ jobs:
         with:
           images: ghcr.io/speedst3r/get-iplayer
 
+      - name: Extract metadata (tags, labels) for Docker
+        id: metaalpine
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ghcr.io/speedst3r/get-iplayer
+          flavor: |
+            latest=false
+            suffix=alpine
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
@@ -37,3 +46,12 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image (alpine)
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          file: Dockerfile.alpine
+          push: true
+          tags: ${{ steps.metaalpine.outputs.tags }}
+          labels: ${{ steps.metaalpine.outputs.labels }}
