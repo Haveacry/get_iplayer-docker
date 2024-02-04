@@ -10,7 +10,7 @@ LABEL maintainer="Dean Holland <speedster@haveacry.com>" \
       org.label-schema.vcs-url="https://github.com/speedst3r/get_iplayer-docker" \
       org.label-schema.build-date=$BUILD_DATE
 
-ADD start.sh /root/start.sh
+ADD start.sh.alpine /root/start.sh
 
 RUN apk --update add \
     bash \
