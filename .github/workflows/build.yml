@@ -8,7 +8,7 @@ on:
 # a virtual environment.
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: default-linux
     permissions:
       contents: read
       packages: write

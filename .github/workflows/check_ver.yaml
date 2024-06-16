@@ -7,7 +7,7 @@ on:
 
 jobs:
   check_version:
-    runs-on: ubuntu-latest
+    runs-on: default-linux
     steps:
       - uses: actions/checkout@v4
         with:
