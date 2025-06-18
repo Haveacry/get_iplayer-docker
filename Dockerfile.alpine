@@ -22,7 +22,7 @@ RUN apk --update add \
     perl-xml-simple \
     perl-xml-libxml && \
     apk add atomicparsley --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
-    wget https://github.com/get-iplayer/get_iplayer/archive/$IPLAYER_VERSION.tar.gz -O /root/latest.tar.gz && \
+    curl -Lo /root/latest.tar.gz https://github.com/get-iplayer/get_iplayer/archive/$IPLAYER_VERSION.tar.gz && \
     tar -C /root -xzf /root/latest.tar.gz --strip-components=1 && \
     rm /root/latest.tar.gz && \
     chmod 755 /root/start.sh && \
