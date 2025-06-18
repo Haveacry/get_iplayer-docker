@@ -3,7 +3,7 @@ FROM ubuntu:latest
 ARG BUILD_DATE
 ARG VCS_REF
 
-ENV IPLAYER_VERSION=v3.35
+ENV IPLAYER_VERSION=v3.36
 
 LABEL maintainer="Dean Holland <speedster@haveacry.com>" \
       org.label-schema.vcs-ref=$VCS_REF \
