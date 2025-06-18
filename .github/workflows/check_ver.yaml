@@ -28,7 +28,7 @@ jobs:
       localver: ${{ steps.localversion.outputs.localver }}
 
   update_iplayer:
-    runs-on: ubuntu-latest
+    runs-on: default-linux
     needs: check_version
     if: ${{ needs.check_version.outputs.iplayerver != needs.check_version.outputs.localver && needs.check_version.outputs.iplayerver != '' }}
     steps:

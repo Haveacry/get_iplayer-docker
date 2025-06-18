@@ -1,6 +1,6 @@
 # get_iplayer on Docker
 
-[![](https://images.microbadger.com/badges/image/Haveacry/get-iplayer.svg)](https://microbadger.com/images/Haveacry/get-iplayer "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/haveacry/get-iplayer.svg)](https://microbadger.com/images/haveacry/get-iplayer "Get your own image badge on microbadger.com")
 
 [Get_iPlayer](https://github.com/get-iplayer/get_iplayer) A utility for downloading TV and radio programmes from BBC iPlayer, that is currently in active development.
 
@@ -11,7 +11,7 @@
     -v /etc/localtime:/etc/localtime:ro \
     -v </path/to/config>:/root/.get_iplayer \
     -v </path/to/downloads>:/root/output \
-    ghcr.io/Haveacry/get-iplayer
+    ghcr.io/haveacry/get-iplayer
 
 * Backup your current config and recordings.
 * Mount `/root/.get_iplayer` to your config directory.  This should include your `options` file and `pvr` directory.  If starting from scratch, you can manually edit the `options` file created here.
@@ -27,5 +27,5 @@
 This container is rebuilt automatically when a new release of get_iplayer upstream is published. Utilities that monitor for new versions of the container or new tags should pick up the new version.
 
 ## Issues
-* Report issues with this dockerfile <https://github.com/Haveacry/get_iplayer/issues>
+* Report issues with this dockerfile <https://github.com/haveacry/get_iplayer/issues>
 * Report issues with the get_iplayer script <https://squarepenguin.co.uk/forums/>
