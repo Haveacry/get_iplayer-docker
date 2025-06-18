@@ -14,6 +14,7 @@ ADD start.sh.alpine /root/start.sh
 
 RUN apk --update add \
     bash \
+    curl \
     ffmpeg \
     openssl \
     perl-cgi \
