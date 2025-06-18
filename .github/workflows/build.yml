@@ -28,13 +28,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/speedst3r/get-iplayer
+          images: ghcr.io/haveacry/get-iplayer
 
       - name: Extract metadata (tags, labels) for Docker (Alpine)
         id: metaalpine
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/speedst3r/get-iplayer
+          images: ghcr.io/haveacry/get-iplayer
           flavor: |
             suffix=-alpine,onlatest=true
 
