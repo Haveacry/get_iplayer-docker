@@ -24,6 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
     liblwp-protocol-https-perl \
     libxml-simple-perl \
     libxml-libxml-perl && \
+    rm -rf /var/cache/apt/* && \
     wget https://github.com/get-iplayer/get_iplayer/archive/$IPLAYER_VERSION.tar.gz -O /root/latest.tar.gz && \
     tar -C /root -xzf /root/latest.tar.gz --strip-components=1 && \
     rm /root/latest.tar.gz && \
